@@ -1,7 +1,7 @@
 # 전제
 
 CRA로 리액트앱을 만든 후 `npm install @octokit/graphql`: graphQL의 쿼리를 로컬 환경에서 쉽게 수행할 수 있게 도와주는 라이브러리인 [@octokit/graphql](https://github.com/octokit/graphql.js/)를 깔자!
-그리고 `import { graphql } from "@octokit/graphql";`로 import하기! [github graphql API 문서](https://docs.github.com/ko/graphql)를 확인하며 쿼리를 작성해보자!
+그리고 `import { graphql } from "@octokit/graphql";`로 import하기! 모르겠으면 [github graphql API 문서](https://docs.github.com/ko/graphql)를 확인하며 쿼리를 작성해보자!
 
 # Bare Minimum Requirements
 
