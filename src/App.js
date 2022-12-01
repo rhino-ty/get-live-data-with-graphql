@@ -1,10 +1,13 @@
 import "./App.css";
 import { graphql } from "@octokit/graphql";
+import { Loading, Discussions } from "./Components";
 import { useState, useEffect } from "react";
-// import { TOKEN } from "./token";
 
-const agoraData = async () => {
-  const { repository } = await graphql(
+// const { REACT_APP_GITHUB_AGORA_STATES_TOKEN } = process.env;
+// let token = REACT_APP_GITHUB_AGORA_STATES_TOKEN;
+
+const getRepository = async () => {
+  const { repository, viewer } = await graphql(
     `
       {
         repository(name: "agora-states-fe", owner: "codestates-seb") {
@@ -31,49 +34,38 @@ const agoraData = async () => {
             }
           }
         }
+        viewer {
+          login
+          avatarUrl
+        }
       }
     `,
     {
       headers: {
-        authorization: `bearer ${env}`,
+        authorization: `bearer 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`,
+        // authorization: `token ${token}`,
       },
     }
   );
-  return repository;
+  return { repository, viewer };
 };
 
 function App() {
-  const [data, setData] = useState();
+  const [agoraData, setAgoraData] = useState({});
+  const [viewer, setViewer] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    agoraData()
+    getRepository()
       .then((res) => {
-        setData(res.discussions.edges);
+        setAgoraData(res.repository.discussions.edges);
+        setViewer(res.viewer);
         setIsLoading(false);
       })
       .catch((error) => console.log(Error, error));
   }, []);
 
-  return (
-    <div className="App">
-      <div>Hello agorastates</div>
-      <ul>
-        {isLoading
-          ? "loading..."
-          : data.map((edge) => {
-              return (
-                <li key={edge.node.id}>
-                  <img src={edge.node.author.avatarUrl} alt={`avatar of ${edge.node.author.login}`} />
-                  <div>{`[${edge.node.category.name}]`}</div>
-                  <a href={edge.node.url}>{edge.node.title}</a>
-                  <p>{edge.node.answer ? "☑" : "☒"}</p>
-                </li>
-              );
-            })}
-      </ul>
-    </div>
-  );
+  return <div className="App">{isLoading ? <Loading /> : <Discussions discussions={agoraData} viewer={viewer} />}</div>;
 }
 
 export default App;
