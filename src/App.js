@@ -1,6 +1,7 @@
 import "./App.css";
 import { graphql } from "@octokit/graphql";
 import { useState, useEffect } from "react";
+// import { TOKEN } from "./token";
 
 const agoraData = async () => {
   const { repository } = await graphql(
@@ -34,7 +35,7 @@ const agoraData = async () => {
     `,
     {
       headers: {
-        authorization: `bearer ${TOKEN}`,
+        authorization: `bearer ${env}`,
       },
     }
   );
