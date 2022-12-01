@@ -42,7 +42,6 @@ const getRepository = async () => {
     `,
     {
       headers: {
-        authorization: `bearer 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`,
         // authorization: `token ${token}`,
       },
     }
