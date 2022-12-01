@@ -1,70 +1,14 @@
-# Getting Started with Create React App
+# 전제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+CRA로 리액트앱을 만든 후 `npm install @octokit/graphql`: graphQL의 쿼리를 로컬 환경에서 쉽게 수행할 수 있게 도와주는 라이브러리인 [@octokit/graphql](https://github.com/octokit/graphql.js/)를 깔자!
+그리고 `import { graphql } from "@octokit/graphql";`로 import하기! [github graphql API 문서](https://docs.github.com/ko/graphql)를 확인하며 쿼리를 작성해보자!
 
-## Available Scripts
+# Bare Minimum Requirements
 
-In the project directory, you can run:
+- 배운 GraphQL 쿼리를 이용해 아고라 스테이츠에 접근하여 1개 이상의 데이터를 조회해봅니다.
+  - Issues, Pull requests 등에 접근하여 데이터를 조회합니다.
+- 현재 내가 로그인 되어 있는지 확인할 수 있는 쿼리를 짜봅니다.
 
-### `npm start`
+# Advanced
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+쿼리해 온 데이터를, React 앱으로 만들었던 나만의 아고라스테이츠나 자신의 앱에 적용해 보기 좋게 구성해봅니다.
